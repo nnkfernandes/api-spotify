@@ -18,7 +18,7 @@ auth_response_data = auth_response.json()
 # save the access token
 access_token = auth_response_data['access_token']
 
-f = open("filename.txt", "w")
+f = open("auth_response_data.txt", "w")
 
 # Write the string to the file
 resp = auth_response.text
