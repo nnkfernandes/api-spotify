@@ -32,14 +32,4 @@ track_id = '01z2fBGB8Hl3Jd3zXe4IXR'
 r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
 r = r.json()
 
-f = open("auth_response_data.txt", "w")
-
-# Write the string to the file
-resp = r
-
-resp = resp.text
-
-f.write(resp)
-
-# Close the file
-f.close()
+print(r)
