@@ -18,13 +18,18 @@ auth_response_data = auth_response.json()
 # save the access token
 access_token = auth_response_data['access_token']
 
-f = open("auth_response_data.txt", "w")
+headers = {
+        'Authorization': 'Bearer {token}'.format(token=access_token)
+        
+}
 
-# Write the string to the file
-resp = auth_response.text
+# base URL of all Spotify API endpoints
+BASE_URL = 'https://api.spotify.com/v1/'
 
-f.write(resp)
+track_id = '01z2fBGB8Hl3Jd3zXe4IXR'
 
-# Close the file
-f.close()
+# actual GET request with proper header
+r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
+r = r.json()
 
+print(r)
